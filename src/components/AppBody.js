@@ -1,6 +1,7 @@
 import Card from "./Card";
 import CARDDATA from "../utils/mockData";
 import { useEffect, useState } from "react";
+import Shimmer from "./Shimmer";
 
 const AppBody = () => {
   let [cardObj, setCardObj] = useState([]);
@@ -15,10 +16,12 @@ const AppBody = () => {
     );
     const json = await data.json();
     // console.log(json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants)
-    setCardObj(json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants);
+    setCardObj(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   };
 
-  
+  if(cardObj.length === 0){
+    return <Shimmer />
+  }
 
   return (
     <div className="container">
