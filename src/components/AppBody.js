@@ -14,8 +14,8 @@ const AppBody = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=8.5241391&lng=76.9366376&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    // console.log(json.data.cards)
-    setCardObj(json.data.cards);
+    // console.log(json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants)
+    setCardObj(json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants);
   };
 
   
@@ -31,7 +31,7 @@ const AppBody = () => {
           className="top-rated"
           value={"Top Rated"}
           onClick={() => {
-            cardObj = cardObj.filter((res) => res.avgRating > 4);
+            cardObj = cardObj.filter((res) => res.info.avgRating > 4);
             setCardObj(cardObj);
           }}
         >

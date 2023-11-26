@@ -3,13 +3,13 @@ import CDNURL from "../utils/constants";
 const Card = (props) => {
   
     const { card } = props;
-    console.log('>>>>',card);
-    const { resId, image, resName, cuisine, avgRating, delTime } = card;
+    // console.log('>>>>',card.info);
+    const { id, cloudinaryImageId, name, cuisine, avgRating, delTime } = card.info;
   
     return (
-      <div className="card" key={resId}>
-        <img className="banner" src={CDNURL + image} />
-        <h3 className="res-name">{resName}</h3>
+      <div className="card" key={id}>
+        <img className="banner" src={CDNURL + cloudinaryImageId} />
+        <h3 className="res-name">{name}</h3>
         <p title={cuisine}>{cuisine}</p>
         <div className="card-misc">
           <span className="star-rating">{avgRating} ⭐️</span>
