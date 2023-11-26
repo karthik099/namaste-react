@@ -19,6 +19,7 @@ const AppBody = () => {
     setCardObj(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   };
 
+  // SHIMMER UI - `CONDITIONAL RENDERING`
   if(cardObj.length === 0){
     return <Shimmer />
   }
